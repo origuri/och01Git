@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function chk(){
+		//title-> 제목은?+focus
+		//write-> 작성자?+focus
+		//content-> 내용은?+focus
+		
+		// length를 쓰고 싶으면 value.length
+		if(frm.title.value.length == 0){
+			alert("제목써야지")
+			frm.title.focus();
+			return false;
+		}
+		// value까지 쓰면 "" 으로 처리
+		if(frm.writer.value == ""){
+			alert("작성자 써야지")
+			frm.writer.focus();
+			return false;
+		}
+		if(frm.content.value == ""){
+			alert("내용 써야지")
+			frm.content.focus();
+			return false;
+		}
+		return true;
+		
+	}
+</script>
+</head>
+<body>
+	<h1>게시판</h1>
+	<form action="Board" name="frm" onsubmit="return chk()" method="post">
+	<!-- 제목 -> title , 작성자-> writer , 내용->content -->
+	
+	<table border="1" >
+		<tr>
+			<td>제목</td>
+			<td><input type="text" name = "title"></td>
+		</tr>
+		<tr>
+			<td>작성자</td>
+			<td><input type="text" name = "writer"></td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td><textarea cols = "40" rows = "10" name = "content"></textarea></td>
+		</tr>
+		<tr><!-- colspan : 행 병합. -->
+			<td colspan="100" style="text-align: right;"><input type="submit" value="완료"></td>
+		</tr>
+	
+	</table>
+	
+	</form>
+</body>
+</html>
